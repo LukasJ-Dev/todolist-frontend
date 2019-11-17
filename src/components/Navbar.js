@@ -6,22 +6,29 @@ import logo from '../talin.JPG';
 class Navbar extends React.Component {
     render() {
         let profilePicture;
-        if(!this.props.isLoggedin) {
+        if(this.props.loading) {
             profilePicture = (
-            <div>
-                <Link className="text-white" to="/login">Login</Link>
-                <Link className="text-white pl-4" to="/register">Register</Link>
-            </div>
+                <div></div>
             )
         } else {
-            profilePicture = (
-            <div>
-                <button className="btn" style={{backgroundColor: 'transparent'}}>
-                    <img src={logo} height="42" width="42" className="rounded-circle" alt="Profile"/>
-                </button>
-            </div>
-            );
+            if(!this.props.isLoggedin) {
+                profilePicture = (
+                <div>
+                    <Link className="text-white" to="/login">Login</Link>
+                    <Link className="text-white pl-4" to="/register">Register</Link>
+                </div>
+                )
+            } else {
+                profilePicture = (
+                <div>
+                    <button className="btn" style={{backgroundColor: 'transparent'}}>
+                        <img src={logo} height="42" width="42" className="rounded-circle" alt="Profile"/>
+                    </button>
+                </div>
+                );
+            }
         }
+
       return (
         <div>
             <nav className="navbar navbar-dark bg-primary navbar-expand-lg">

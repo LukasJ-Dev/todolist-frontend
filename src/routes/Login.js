@@ -1,14 +1,12 @@
 import React from 'react';
 import 'react-router';
-
-import auth from '../auth';
+import authHandler from '../handler/authHandler';
 
 class Login extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            login_url: 'http://laravel.local:85/ljtodolist-backend/public/api/login',
             email: '',
             password: ''
         };
@@ -17,15 +15,16 @@ class Login extends React.Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        new auth().Login(this.state.email, this.state.password,this.onLoggedin.bind(this));
+        authHandler.Login(this.state.email, this.state.password).then((isAuth) => {
+            if(isAuth) {
+                
+                this.props.setLoggedin(true);
+                this.props.history.push('/dashboard');
+            }
+            
+        });
     }
-
-    onLoggedin = () => {
-        this.props.history.push('/dashboard');
-    }
-
     
-
     onChange = (e) => {
         this.setState({[e.target.name]: e.target.value});
     }
