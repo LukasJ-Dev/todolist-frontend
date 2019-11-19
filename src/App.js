@@ -13,6 +13,8 @@ import Login from './routes/Login';
 import Register from './routes/Register';
 import Dashboard from './routes/Dashboard';
 import NewProject from './routes/NewProject';
+import Teams from './routes/Teams';
+import NewTeam from './routes/NewTeam';
 
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -60,6 +62,9 @@ class App extends React.Component {
           <ProtectedRoute path="/register" routeHandler={routeHandler.Login.bind(this)} {...p} component={Register}/>
           <ProtectedRoute path="/dashboard" routeHandler={routeHandler.Dashboard.bind(this)} {...p} component={Dashboard}/>
           <ProtectedRoute path="/newproject" routeHandler={routeHandler.Dashboard.bind(this)} {...p} component={NewProject}/>
+          <ProtectedRoute path="/teams" routeHandler={routeHandler.Dashboard.bind(this)} {...p} component={Teams}/>
+          <ProtectedRoute path="/newteam" routeHandler={routeHandler.Dashboard.bind(this)} {...p} component={NewTeam}/>
+          <Route path="*" ><h1>Page not found</h1></Route>
         </Switch>
       </Router>
       );
