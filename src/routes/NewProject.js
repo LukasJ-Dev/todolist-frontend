@@ -1,5 +1,6 @@
 import React from 'react';
 import apiHandler from '../handler/apiHandler';
+import axios from 'axios';
 
 class NewProject extends React.Component {
 
@@ -8,7 +9,8 @@ class NewProject extends React.Component {
     this.state = {
         teams: [],
         title: '',
-        description: ''
+        description: '',
+        image: null
     };
   }
 
@@ -21,12 +23,11 @@ class NewProject extends React.Component {
         return team;
       }
     });
-    var project = {
-      title: this.state.title,
-      description: this.state.description,
-      belongs_to: team.id
-    }
-    console.log(project);
+    const project = new FormData();
+    project.append('title', this.state.title);
+    project.append('description', this.state.description);
+    project.append('belongs_to', team.id);
+    project.append('image', this.state.image);
     
     apiHandler.post('projects',project, true).then((r) => {
         this.props.history.push('/dashboard');
@@ -34,7 +35,13 @@ class NewProject extends React.Component {
 }
 
 onChange = (e) => {
-    this.setState({[e.target.name]: e.target.value});
+  this.setState({[e.target.name]: e.target.value});
+}
+
+onChangeImage = (e) => {
+  this.setState({image: e.target.files[0]});
+  console.log(e.target.files[0]);
+  
 }
 
 componentDidMount() {
@@ -59,7 +66,11 @@ componentDidMount() {
                   </div>
                   <div>
                       <label htmlFor="description">Description</label>
-                      <input id="description" type="text" name="description" onChange={this.onChange}/>
+                      <input id="description" type="text" name="description" onChange={this.onChange.bind(this)}/>
+                  </div>
+                  <div>
+                      <label htmlFor="image">Image</label>
+                      <input id="image" type="file" name="image" onChange={this.onChangeImage.bind(this)}/>
                   </div>
                   <div>
                     <select name="team" id="teamselector">{teamSelector}</select>
