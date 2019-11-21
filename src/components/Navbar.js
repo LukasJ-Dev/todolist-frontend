@@ -15,14 +15,14 @@ class Navbar extends React.Component {
                 profilePicture = (
                 <div>
                     <Link className="text-white" to="/login">Login</Link>
-                    <Link className="text-white pl-4" to="/register">Register</Link>
+                    <Link className="text-white" to="/register">Register</Link>
                 </div>
                 )
             } else {
                 profilePicture = (
                 <div>
-                    <button className="btn" style={{backgroundColor: 'transparent'}}>
-                        <img src={logo} height="42" width="42" className="rounded-circle" alt="Profile"/>
+                    <button className="inv-button">
+                        <img src={logo} height="42" width="42" className="profile-picture" alt="Profile"/>
                     </button>
                 </div>
                 );
@@ -31,10 +31,9 @@ class Navbar extends React.Component {
 
       return (
         <div>
-            <nav className="navbar navbar-dark bg-primary navbar-expand-lg">
+            <nav className="navbar">
                 <Link className="navbar-brand" to="/">LJ Todolist</Link>
-                <div className="navbar-nav mr-auto mt-2 mt-lg-0"></div>
-                <div className="my-2 my-lg-0">
+                <div className="nav-right">
                     {profilePicture}
                 </div>
             </nav>

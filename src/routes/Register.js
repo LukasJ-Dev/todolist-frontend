@@ -33,28 +33,34 @@ class Register extends React.Component {
 
     render() {
       return (
-          <div>
-              <h1>Register</h1>
+          <div className="container">
+            <div className="card login-card">
+              <h1 className="login-title">Register</h1>
               <form onSubmit={this.onSubmit.bind(this)}>
                 <meta name="csrf-token" content="{{ csrf_token() }}" />
-                  <div>
-                      <label htmlFor="name">Name</label>
-                      <input id="name" type="text" name="name" onChange={this.onChange.bind(this)}/>
+                  <div className="container">
+                      <label htmlFor="name">Name</label><br/>
+                      <input id="name" className="input" type="text" name="name" onChange={this.onChange.bind(this)}/>
                   </div>
-                  <div>
-                      <label htmlFor="email">Email Adress</label>
-                      <input id="email" type="email" name="email" onChange={this.onChange.bind(this)}/>
+                  <div className="container">
+                      <label htmlFor="email">Email Adress</label><br/>
+                      <input id="email" className="input" type="email" name="email" onChange={this.onChange.bind(this)}/>
                   </div>
-                  <div>
-                      <label htmlFor="password">Password</label>
-                      <input id="password" type="password" name="password" onChange={this.onChange}/>
+                  <div className="container">
+                      <label htmlFor="password">Password</label><br/>
+                      <input id="password" className="input" type="password" name="password" onChange={this.onChange}/>
                   </div>
-                  <div>
-                      <label htmlFor="password_confirmation">Confirm Password</label>
-                      <input id="password_confirmation" type="password" name="password_confirmation" onChange={this.onChange}/>
+                  <div className="container">
+                      <label htmlFor="password_confirmation">Confirm Password</label><br/>
+                      <input id="password_confirmation" className="input" type="password" name="password_confirmation" onChange={this.onChange}/>
                   </div>
-                  <button type="submit">Register</button>
+                  <br /><hr/>
+                  <div className="card-button-group">
+                    <button type="submit" className="float-button">Register</button>
+                  </div>
+                  
               </form>
+            </div>
           </div>
       );
     }

@@ -10,7 +10,7 @@ class ProjectsList extends React.Component {
         <ProjectCard project={project} key={project.id}/>
       );
       return (
-          <div className="row">
+          <div className="project-grid">
             {projectCards}
           </div>
       );

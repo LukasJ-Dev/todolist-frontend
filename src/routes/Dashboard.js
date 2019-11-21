@@ -24,8 +24,10 @@ class Dashboard extends React.Component {
     render() {
       return (
           <div className="container">
+            
               <h1>Dashboard</h1>
-              <Link to='/newproject'>New Project</Link>
+              <Link to='/newproject'><button className="inv-button float-button">New Project</button></Link>
+              <br/><hr/>
               <ProjectsList projects={this.state.projects}/>
           </div>
       );
