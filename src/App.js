@@ -12,7 +12,8 @@ import Landing from './routes/Landing';
 import Login from './routes/Login';
 import Register from './routes/Register';
 import Dashboard from './routes/Dashboard';
-import NewProject from './routes/NewProject';
+import ProjectView from './routes/ProjectView';
+import TodolistView from './routes/TodolistView';
 import Teams from './routes/Teams';
 import NewTeam from './routes/NewTeam';
 
@@ -61,9 +62,10 @@ class App extends React.Component {
           <ProtectedRoute path="/login" routeHandler={routeHandler.Login.bind(this)} {...p} component={Login} />
           <ProtectedRoute path="/register" routeHandler={routeHandler.Login.bind(this)} {...p} component={Register}/>
           <ProtectedRoute path="/dashboard" routeHandler={routeHandler.Dashboard.bind(this)} {...p} component={Dashboard}/>
-          <ProtectedRoute path="/newproject" routeHandler={routeHandler.Dashboard.bind(this)} {...p} component={NewProject}/>
           <ProtectedRoute path="/teams" routeHandler={routeHandler.Dashboard.bind(this)} {...p} component={Teams}/>
           <ProtectedRoute path="/newteam" routeHandler={routeHandler.Dashboard.bind(this)} {...p} component={NewTeam}/>
+          <ProtectedRoute path="/project/:id" routeHandler={routeHandler.Dashboard.bind(this)} {...p} component={ProjectView}/>
+          <ProtectedRoute path="/todolist/:id" routeHandler={routeHandler.Dashboard.bind(this)} {...p} component={TodolistView}/>
           <Route path="*" ><h1>Page not found</h1></Route>
         </Switch>
       </Router>

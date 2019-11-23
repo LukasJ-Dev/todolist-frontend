@@ -66,9 +66,8 @@ class ProtectedRoute extends React.Component {
       console.log(this.props);
       
       console.log('--------------------------');
-
       return (
-        <Route {...this.props.rest} exact render={(props) => (
+        <Route {...this.props.rest} render={(props) => (
           this.state.redirect ?
           (<Redirect to={this.state.redirect_to}/>)
           :
@@ -76,7 +75,7 @@ class ProtectedRoute extends React.Component {
             this.props.loading ?
               <h1>Loading</h1>
               :
-              <this.props.component handler={this.props.handler} {...props} redirect={this.redirect.bind(this)} />
+              <this.props.component handler={this.props.handler} {...props} {...this.props.computedMatch} redirect={this.redirect.bind(this)} />
           )
           
           

@@ -17,7 +17,7 @@ class ProjectCard extends React.Component {
             </div>
             <hr />
             <div className="card-button-group">
-                <Link to="/"><button className="float-button">Open</button></Link>
+                <Link to={'project/' + this.props.project.id}><button className="float-button">Open</button></Link>
             </div>
         </div>
       );

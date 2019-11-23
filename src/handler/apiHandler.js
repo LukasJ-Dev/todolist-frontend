@@ -2,7 +2,7 @@ import axios from 'axios';
 class apiHandler {
     constructor() {
         this.apiUrls = {
-            domain: 'http://laravel.local:85/ljtodolist-backend/public/',
+            domain: 'http://lukas-stdator:85/ljtodolist-backend/public/',
         }
     }
 
