@@ -1,6 +1,5 @@
 import React from 'react';
-import TodolistCard from './TodolistCard';
-import {Link} from "react-router-dom";
+import TodolistCard from '../Cards/TodolistCard';
 
 class Todolists extends React.Component {
 

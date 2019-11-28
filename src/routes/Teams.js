@@ -1,7 +1,7 @@
 import React from 'react';
 import apiHandler from '../handler/apiHandler';
 import {Link} from "react-router-dom";
-import TeamList from '../components/TeamList';
+import TeamList from '../components/Lists/TeamList';
 
 class Teams extends React.Component {
 

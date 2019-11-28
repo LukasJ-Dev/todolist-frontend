@@ -1,7 +1,6 @@
 import React from 'react';
 import apiHandler from '../handler/apiHandler';
-import Todolists from '../components/Todolists';
-import NewTodolist from '../components/NewTodolist';
+import Lists from '../components/Lists/Lists';
 
 class TodolistView extends React.Component {
 
@@ -15,18 +14,25 @@ class TodolistView extends React.Component {
   }
 
   requestTodolist() {
+    
     apiHandler.get('todolists/'+this.props.params.id).then((data) => {
+      console.log(data);
       
       this.setState({todolist: data});
+      
     });
   }
     render() {
-        return (
+      console.log(this.state.todolist);
+      
+      return (
             <div className="todolist-bg" style={{backgroundImage: `url(${apiHandler.getImageUrl(this.state.todolist.image)})`}}>
                 <div className="gray-overlay">
-                    <h1 className="container">{this.state.todolist.title}</h1>
-                    
-                    </div>
+                    <h2 className="container">{this.state.todolist.title}</h2>
+                  </div>
+                  <div>
+                    <Lists lists={this.state.todolist.lists} todolist_id={this.state.todolist.id} requestTodolist={this.requestTodolist.bind(this)}/>
+                  </div>
             </div>
       );
     }

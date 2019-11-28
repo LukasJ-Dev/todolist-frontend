@@ -1,6 +1,6 @@
 import React from 'react';
 import apiHandler from '../handler/apiHandler';
-import Todolists from '../components/Todolists';
+import Todolists from '../components/Lists/Todolists';
 import NewTodolist from '../components/NewTodolist';
 
 class ProjectView extends React.Component {

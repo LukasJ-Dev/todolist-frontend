@@ -44,6 +44,33 @@ class apiHandler {
         });
         
       }
+
+      put(api, data) {
+        let promise = axios.put(this.getApiUrlFor(api), data, { 'headers': 
+        { 'Authorization': 'Bearer '+localStorage.getItem('token'), 'Accept': 'application/json' } })
+        .then((response) => {
+          console.log(response.data);
+          
+          return response;
+        })
+        .catch((error) => {
+          return error;
+        });
+        return promise;
+      }
+      delete(api) {
+        let promise = axios.delete(this.getApiUrlFor(api), { 'headers': 
+        { 'Authorization': 'Bearer '+localStorage.getItem('token'), 'Accept': 'application/json' } })
+        .then((response) => {
+          return response;
+        })
+        .catch((error) => {
+          return error;
+        });
+        return promise;
+      }
 }
+
+
 
 export default new apiHandler();
